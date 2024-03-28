@@ -21,11 +21,11 @@ This creates a build file
 
 To successfully start the project on local environment, copy the `.env.example` file to create create either a `.env`, `.env.local` or `.env.development` file and add the required environmental variables as explained below;
 
-- NODE_ENV= "<Node Environment>"
+- NODE_ENV= "<Node_Environment>"
 - PORT= "<Port>"
-- JWT_SECRET= "<Jwt Secret>"
-- MONGODB_URI="<MongoDb Unique Resource Identifier>"
-- PAYSTACK_KEY="<Paystack key>"
-- USER="<NodeMailer email>"
-- PASS="<email password>"
-- FINCRA_KEY="<Fincra key>"# agrocil
+- JWT_SECRET= "<Jwt_Secret>"
+- MONGODB_URI="<MongoDb_Unique_Resource_Identifier>"
+- PAYSTACK_KEY="<Paystack_key>"
+- USER="<NodeMailer_email>"
+- PASS="<email_password>"
+- FINCRA_KEY="<Fincra_key>"
