@@ -15,6 +15,10 @@ export const adminIUI = {
   },
   // '&>li:nth-of-type(odd)'
   table: {
+    width: '90%',
+    mx: 'auto',
+    // m: 'rem 1rem',
+    mb: '2rem',
     "& th, & td":{p: '0.5rem'},
     '& th': {
       color: '#FFFFFF',
@@ -34,17 +38,7 @@ export const adminIUI = {
     // bgcolor: theme.palette.common.lemon2
   },
   mainTable: {
-    overflowY: 'scroll',
-    p: '2rem 1rem',
-    [theme.breakpoints.down('lg')]: {
-      p: '2rem 8rem'
-    },
-    [theme.breakpoints.down('md')]: {
-      p: '2rem 3rem'
-    },
-    [theme.breakpoints.down('sm')]: {
-      p: '2rem 1rem'
-    },
+    overflow: 'scroll',
   },
   '& .MuiTableHead-root': {
     '& th': {
@@ -62,14 +56,20 @@ export const adminIUI = {
   },
   excel: {
     pr: '5rem',
-    '& button': {
+    mb: '1rem',
+    '& a': {
       cursor: 'pointer',
       bgcolor: theme.palette.primary.light,
       borderColor: theme.palette.primary.main,
       borderRadius: '5px',
       p: '.5rem 1rem',
       mt: '1.5rem',
-      color: '#FFF'
+      color: '#FFF',
+      textDecoration: 'none',
+      transition: 'all 0.4s',
+      '&:hover': {
+        bgcolor: theme.palette.primary.dark
+      }
     }
   }
 }

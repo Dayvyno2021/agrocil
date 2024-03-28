@@ -28,7 +28,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import { CSVLink } from "react-csv";
 
 import { invs } from "./aminInvestorUI";
 import TextField from "@mui/material/TextField";
@@ -197,13 +197,13 @@ const AdminInvestors = () => {
           >
             Delete Update
           </Button>
-          <ReactHTMLTableToExcel
-            className="download-table-xls-button"
-            table='investorsTable'
-            filename="Investors"
-            sheet="investors"
-            buttonText="Download xlx"
-          />
+               
+          {
+            investors &&(
+            <CSVLink data={investors} >
+              Download CSV
+            </CSVLink>
+          )}
         </Grid>
         {
           see && 

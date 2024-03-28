@@ -5,8 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import Header from "../../components/headerComp/Header";
 import { allReferralAction, deleteReferralAction } from "../../actions/referralActions";
 
-
-// import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Progress from "../../components/Progress";
 import SnackBar from "../../components/Snackbar";
@@ -15,9 +13,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import CheckIcon from '@mui/icons-material/Check';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-// import { useNavigate } from "react-router-dom";
-// import { theme } from "../../components/Theme";
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import { CSVLink } from "react-csv";
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -111,13 +107,13 @@ const AdminReferPayouts = () => {
           <Typography variant="h1">All Referrals</Typography>
         </Grid>
         <Grid item xs={12} container justifyContent='end' sx={adminRefUI.excel}>
-          <ReactHTMLTableToExcel
-            className="download-table-xls-button"
-            table='refferalsTable'
-            filename="Referrals"
-            sheet="ref"
-            buttonText="Download xlx"
-          />
+          {
+            allRef &&(
+            <CSVLink data={allRef} >
+              Download CSV
+            </CSVLink>
+          )}
+
         </Grid>
         <Grid item container justifyContent='center' direction='column' sx={adminRefUI.mainTable}>
           

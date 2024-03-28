@@ -56,14 +56,18 @@ export const invs = {
     [theme.breakpoints.down('lg')]: {
       pr: '5rem'
     },
-    '& .download-table-xls-button': {
+    '& a': {
       cursor: 'pointer',
       bgcolor: theme.palette.primary.main,
       borderColor: theme.palette.primary.main,
       borderRadius: '5px',
       height: '2.5rem',
       textTransform: 'none',
-      p: '.5rem 1rem',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      p: '0 1rem',
+      textDecoration: 'none',
       m: '0.5rem',
       transition: 'all 0.3s',
       color: '#FFF',

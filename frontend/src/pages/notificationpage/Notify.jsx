@@ -23,14 +23,25 @@ const nt = {
   },
   mess: {
     pl: '10rem',
-    mb: '5rem',
+    mb: '2rem',
     [theme.breakpoints.down('sm')]: {
       pl: '2rem'
     }
   },
-  body: {
-    pl: '10rem',
+  cover: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1rem',
+    px: '5rem',
     mb: '2rem',
+    [theme.breakpoints.down('sm')]: {
+      px: '2rem'
+    }
+  },
+  body: {
+    border: '1px solid #C4E6D2',
+    p: '4px 10px',
+    borderRadius: '1rem',
     [theme.breakpoints.down('sm')]: {
       px: '1rem'
     }
@@ -44,7 +55,9 @@ const Notify = () => {
   const { loading, success, error } = deleteNotificationReducer;
 
   const delNotif = (id) => {
-    dispatch(deleteNotificationAction(id))
+    if (window.confirm(`Delete message of ${id}?`)) {
+      dispatch(deleteNotificationAction(id))
+    }
   }
 
   const loginReducer = useSelector((state) => state.loginReducer);
@@ -63,23 +76,25 @@ const Notify = () => {
           <Grid item component={Link} to={`/invest`} sx={nt.mess}>
             <ArrowBackIcon  sx={{color:'#FFF'}} />
           </Grid>
-          {notification && notification.length > 0? 
-          (notification && notification.map((notice) => (
-            <Grid item container key={notice && notice._id} sx={nt.body} >
-              <Grid item container xs={12} md={11} >
-                <Brightness1Icon sx={{color: theme.palette.secondary.dark, mr: '1rem'}} />
-                <Typography  variant='body1' sx={{mr: 'auto', color: '#FFF'}}>
-                  {notice && notice.notice}
-                </Typography>
+          <Grid item sx={nt.cover} >
+            {notification && notification.length > 0? 
+            (notification && notification.map((notice) => (
+              <Grid item container key={notice && notice._id} sx={nt.body} >
+                <Grid item container xs={12} md={10} >
+                  <Brightness1Icon sx={{color: theme.palette.secondary.dark, mr: '1rem'}} />
+                  <Typography  variant='body1' sx={{mr: 'auto', color: '#FFF'}}>
+                    {notice && notice.notice}
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} md={2} justifyContent='end' container>
+                  <DeleteIcon sx={nt.icon} onClick={()=>delNotif(notice && notice._id)} />
+                </Grid>
               </Grid>
-              <Grid item xs={12} md={1} justifyContent='end' container>
-                <DeleteIcon sx={nt.icon} onClick={()=>delNotif(notice && notice._id)} />
-              </Grid>
-            </Grid>
-          ))) : (
-              <Typography color='#FF6666'>==={'>'}No notifications yet</Typography>
-          )
-}
+            ))) : (
+                <Typography color='#FF6666'>==={'>'}No notifications yet</Typography>
+              )
+            }
+          </Grid>
         </Grid>
       </Grid>
     </Box>

@@ -15,7 +15,10 @@ export const adminRefUI = {
   },
   // '&>li:nth-of-type(odd)'
   table: {
-    "& th, & td":{p: '0.5rem'},
+    "& th, & td": { p: '0.5rem' },
+    width: '90%',
+    mx: 'auto',
+    m: '2rem 3rem',
     '& th': {
       color: '#FFFFFF',
       border: `1px solid #000000`,
@@ -31,20 +34,9 @@ export const adminRefUI = {
     }
   },
   container: {
-    // bgcolor: theme.palette.common.lemon2
   },
   mainTable: {
     overflowY: 'scroll',
-    p: '2rem 10rem',
-    [theme.breakpoints.down('lg')]: {
-      p: '2rem 8rem'
-    },
-    [theme.breakpoints.down('md')]: {
-      p: '2rem 3rem'
-    },
-    [theme.breakpoints.down('sm')]: {
-      p: '2rem 1rem'
-    },
   },
   '& .MuiTableHead-root': {
     '& th': {
@@ -56,13 +48,18 @@ export const adminRefUI = {
     [theme.breakpoints.down('lg')]: {
       pr: '5rem'
     },
-    '& button': {
+    '& a': {
       cursor: 'pointer',
       bgcolor: theme.palette.primary.light,
       borderColor: theme.palette.primary.main,
       borderRadius: '5px',
       p: '.5rem 1rem',
-      color: '#FFF'
+      color: '#FFF',
+      textDecoration: 'none',
+      transition: 'all 0.4s',
+      '&:hover': {
+        bgcolor: theme.palette.primary.dark
+      }
     }
   }
 }

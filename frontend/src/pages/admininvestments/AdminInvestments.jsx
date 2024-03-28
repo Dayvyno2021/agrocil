@@ -12,8 +12,7 @@ import Typography from "@mui/material/Typography";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate, useLocation } from "react-router-dom";
-// import { theme } from "../../components/Theme";
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import { CSVLink } from "react-csv";
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -119,13 +118,12 @@ const AdminInvestments = () => {
           <Search />
         </Grid>
         <Grid item xs={12} container justifyContent='end' sx={adminIUI.excel}>
-          <ReactHTMLTableToExcel
-            className="download-table-xls-button"
-            table="investmentTable"
-            filename="Investment Table"
-            sheet="investments"
-            buttonText="Download xlx"
-          />
+          {
+            allOrders &&(
+            <CSVLink data={allOrders} >
+              Download CSV
+            </CSVLink>
+          )}
         </Grid>
         <Grid item container justifyContent='center' direction='column' sx={adminIUI.mainTable}>  
           <Box sx={adminIUI.table}>
@@ -214,7 +212,11 @@ const AdminInvestments = () => {
           :
           ('')
         }
-        <Pagination1 count={pages} sx={{ml: '2rem'}} />
+        <Grid container justifyContent='center'>
+          {
+            pages > 1 && <Pagination1 count={pages} sx={{ml: '2rem'}} />
+          }
+        </Grid>
       </Grid>
     </Box>
   )
