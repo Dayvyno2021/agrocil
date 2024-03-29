@@ -76,7 +76,7 @@ const Referral = () => {
         <Grid item container justifyContent='center' alignItems='center'>
           <Typography variant='body1'>Your Referral link:</Typography>
           <Typography component='a'>
-            {`${process.env.REACT_APP_BASE_URL}/register/?referral=${params.id}`}
+            {`https://agrocil.onrender.com/register/?referral=${params.id}`}
           </Typography>
         </Grid>
       </Grid>

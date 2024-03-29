@@ -137,7 +137,7 @@ const Profile = () => {
           <strong>Invitation Link:</strong>
         </Typography>
         <Typography align='center' sx={{ mt: '0.5rem', color: '#808080' }}>
-          {`${process.env.REACT_APP_BASE_URL}/register/?referral=${acilDetails && acilDetails.refCode}`}
+          {`https://agrocil.onrender.com/register/?referral=${acilDetails && acilDetails.refCode}`}
         </Typography>
         <Typography align='center' sx={{ mt: '0.5rem', color: '#808080' }}>
           <Button variant='outlined' sx={profileUI.update}
