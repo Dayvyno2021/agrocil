@@ -119,7 +119,6 @@ const Profile = () => {
           component='form' onSubmit={uploadImage}
         >
           <input type="file" accept='image/*' name='image' onChange={handleImage} />
-          {/* <span>Change profile pix(max: 200kb){' '} <EditIcon/></span> */}
 
           <Button type='submit' variant='standard'>upload</Button>
         </Grid>
@@ -137,8 +136,8 @@ const Profile = () => {
         <Typography align='center' sx={{ mt: '0.5rem' }}>
           <strong>Invitation Link:</strong>
         </Typography>
-        <Typography align='center' sx={{ mt: '0.5rem', color:'#808080' }}>
-          https://agrocil.com/register/?referral={acilDetails && acilDetails.refCode}
+        <Typography align='center' sx={{ mt: '0.5rem', color: '#808080' }}>
+          {`${process.env.REACT_APP_BASE_URL}/register/?referral=${acilDetails && acilDetails.refCode}`}
         </Typography>
         <Typography align='center' sx={{ mt: '0.5rem', color: '#808080' }}>
           <Button variant='outlined' sx={profileUI.update}
