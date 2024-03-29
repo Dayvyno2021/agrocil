@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import Footer from './components/Footer';
 import Homepage from './pages/homepage/Homepage';
 import Box from '@mui/material/Box';
-import About from "./pages/aboutpage/About";
 import Invest from "./pages/investpage/Invest";
 import Register from "./pages/registerpage/Register";
 import Login from "./pages/loginpage/Login";
@@ -34,13 +34,15 @@ import ResetPassword from "./pages/ResetPassword";
 import PayType from "./pages/PayType";
 import Fincra from "./pages/Fincra";
 
+let About =  lazy(()=>import("./pages/aboutpage/About")) 
+
 
 function App() {
   return (
     <Box className="App" sx={{bgcolor: 'FFF6E6'}}>
       <Routes>
         <Route path="/" element={<Homepage/>} />
-        <Route path="/about" element={<About/>} />
+        <Route path="/about" element={<Suspense fallback="Loading..." ><About/></Suspense>} />
         <Route path="/invest" element={<Invest/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
